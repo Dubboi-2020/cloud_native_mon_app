@@ -1,0 +1,18 @@
+#Need to add port=5001 to the app.py code because flask uses port 5000 which was
+#in use by:
+
+COMMAND    PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+ControlCe 8452        user1  11u  IPv4 0x679a7bf31e4fdcdf      0t0  TCP *:commplex-main (LISTEN)
+ControlCe 8452        user1  IPv6 0xec1ac17f3a364bd8           0t0  TCP *:commplex-main (LISTEN)
+
+
+####This failed to update the app render page had to fix: #######
+
+In trainer repo failed
+return render_template("index.html", cpu_metric=cpu_metric, mem_metric=mem_metric, message=Message)
+
+Fixed
+return render_template("index.html", cpu_metric=cpu_percent, mem_metric=mem_percent, message=Message)
+
+I changed cpu_percent to cpu_metric and mem_percent to mem_metric when passing them into render_template(), 
+to match the variable names in your index.html.##
