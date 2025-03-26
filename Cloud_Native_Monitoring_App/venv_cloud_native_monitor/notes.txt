@@ -16,3 +16,13 @@ return render_template("index.html", cpu_metric=cpu_percent, mem_metric=mem_perc
 
 I changed cpu_percent to cpu_metric and mem_percent to mem_metric when passing them into render_template(), 
 to match the variable names in your index.html.##
+
+
+###
+Create eks cluster
+eksctl create cluster --name my-cluster --region us-west-2 --nodes 2 --node-type t3.medium
+
+
+### 
+Delete eks cluster
+eksctl delete cluster --name my-cluster
